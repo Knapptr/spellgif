@@ -9,8 +9,7 @@ class App extends Component {
 	};
 	onSubmit(e) {
 		e.preventDefault();
-		fetch("http://dnd5eapi.co/api/spells/",
-			{mode: 'cors'})
+		fetch("http://dnd5eapi.co/api/spells/")
 			.then(res => res.json())
 			.then(spells => {
 				this.setState({spellsList: spells});

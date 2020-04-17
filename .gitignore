@@ -1,5 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+#my own adds
+/src/util/global.jst 
 # dependencies
 /node_modules
 /.pnp

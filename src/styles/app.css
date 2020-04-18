@@ -1,0 +1,23 @@
+.searchBarLarge {
+  height: 50px;
+  font-size: x-large;
+  text-align: center;
+}
+input::-webkit-calendar-picker-indicator {
+  /*To get rid of annoying datalist arrow*/
+  display: none;
+}
+body {
+  background: rgba(161, 157, 157, 0.356);
+}
+.title {
+  color: maroon;
+  font-weight: bold;
+}
+.maroon {
+  color: maroon;
+}
+.description {
+  font-style: italic;
+  font-size: 18px;
+}

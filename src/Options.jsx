@@ -3,9 +3,9 @@ import React from "react";
 function Options(props) {
   if (props.show) {
     return (
-      <div className="optionsDialog">
+      <div className="optionsDialog py-2 border-bottom text-center bg-warning">
         <form className="optionsForm">
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input
               checked={props.options.gif ? true : false}
               onChange={props.handleChange}
@@ -18,7 +18,7 @@ function Options(props) {
               Gif
             </label>
           </div>
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input
               checked={props.options.comps ? true : false}
               onChange={props.handleChange}
@@ -31,7 +31,7 @@ function Options(props) {
               Components
             </label>
           </div>
-          <div className="form-check">
+          <div className="form-check form-check-inline">
             <input
               checked={props.options.classes ? true : false}
               onChange={props.handleChange}
@@ -41,7 +41,7 @@ function Options(props) {
               id="classes"
             />
             <label className="form-check-label" htmlFor="classes">
-              Avail. Classes
+              Available Classes
             </label>
           </div>
         </form>

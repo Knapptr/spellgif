@@ -40,49 +40,97 @@ class Spell extends Component {
   };
 
   renderOptions() {
-    let optionalInfo = [];
-    const classDiv = (
-      <div className="class">
+    let optionalInfo = {};
+    optionalInfo.classDiv = (
+      <div className="class col border-bottom border-dark">
         {this.props.spell.classes.map((dndClass) => {
-          return <span>{dndClass.name} </span>;
+          return (
+            <span className="maroon font-weight-bold">{dndClass.name} </span>
+          );
         })}
       </div>
     );
-    const compDiv = (
-      <div className="comp">
+    optionalInfo.compDiv = (
+      <div className="comp col">
+        {" "}
+        <span className="title">Components:</span>
         {this.props.spell.components.map((comp) => {
           return <span>{comp} </span>;
         })}
       </div>
     );
-    const imageDiv = this.makeImg();
-    if (this.props.options.classes) {
-      optionalInfo.push(classDiv);
-    }
-    if (this.props.options.comps) {
-      optionalInfo.push(compDiv);
-    }
-    if (this.props.options.gif) {
-      optionalInfo.push(this.makeImg(this.makeImg()));
-    }
-    return optionalInfo.map((el) => el);
+    optionalInfo.imageDiv = this.makeImg();
+    return optionalInfo;
   }
 
   render() {
+    let optionals = this.renderOptions();
     return (
-      <div className="container border spellResult">
-        <div className="name">{this.props.spell.name}</div>
-        <div className="school">{this.props.spell.school.name}</div>
-        <div className="level">Level {this.props.spell.level}</div>
-        <div className="range">Range: {this.props.spell.range}</div>
-        <div className="components">{this.props.spell.components.length}</div>
-        <div className="castingtime">{this.props.spell.casting_time}</div>
-        <div className="duration">{this.props.spell.duration}</div>
-        <div className="description">{this.props.spell.desc[0]}</div>
-        {this.renderOptions()}
+      <div className="container spellResult mt-3 spellCard">
+        <div className="spellHeader container border-bottom border-dark">
+          <div className="row">
+            <div className="col">
+              <div className="name display-4">{this.props.spell.name}</div>
+              <div className="school lead maroon text-weight bold">
+                {this.props.spell.school.name}
+              </div>
+            </div>
+            <div className="col">
+              {this.props.options.gif && optionals.imageDiv}
+            </div>
+          </div>
+        </div>
+
+        <div className="container py-0 border-bottom border-dark">
+          <div className="row">
+            {this.props.options.classes && optionals.classDiv}
+          </div>
+
+          <div className="row">
+            <div className="level col">
+              <span className="title">Level </span>
+              {this.props.spell.level}
+            </div>
+            <div className="col placeholder"></div>
+            <div className="range col">
+              <span className="title">Range: </span>
+              {this.props.spell.range}
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="castingtime col">
+              <span className="title">Casting Time:</span>
+              {this.props.spell.casting_time}
+            </div>
+            {this.props.options.comps || <div className="col"></div>}
+            {this.props.options.comps && optionals.compDiv}
+            <div className="duration col">
+              <span className="title">Duration:</span>
+              {this.props.spell.duration}
+            </div>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="row border-bottom border-dark py-2 ">
+            <div className="col-11">
+              <div className="description ">{this.props.spell.desc[0]} </div>
+            </div>
+          </div>
+          <div className="row ">
+            <div className="col-11 ">
+              {this.props.spell.higher_level && (
+                <div className="higherLevel ">
+                  <span className="title">At Higher Levels:</span>
+                  {this.props.spell.higher_level[0]}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
-
 export default Spell;

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faHatWizard } from "@fortawesome/free-solid-svg-icons";
+import "./styles/app.css";
 import Spell from "./Spell.jsx";
 import Options from "./Options";
 
@@ -7,9 +10,9 @@ class App extends Component {
   state = {
     isLoaded: false,
     options: {
-      gif: true,
-      classes: false,
-      comps: false,
+      gif: false,
+      classes: true,
+      comps: true,
     },
     showOptions: false,
     spellsList: [],
@@ -39,25 +42,43 @@ class App extends Component {
   };
 
   submitSpell = (e) => {
-    let spellName = e.target.query.value;
     e.preventDefault();
+    document.activeElement.blur();
+    const spellName = e.target.query.value;
+    const spellFound = this.state.spellsList.find((spell) => {
+      return spell.name === spellName;
+    });
+    let spellIndex = "";
+    if (spellFound) {
+      spellIndex = spellFound.index;
+    }
     this.setState({ spellSelected: false }, () => {
-      fetch(
-        "http://www.dnd5eapi.co/api/spells/" +
-          this.state.spellsList.find((spell) => {
-            return spell.name === spellName;
-          }).index
-      )
-        .then((res) => res.json())
-        .then((spell) => {
-          this.setState({ currentSpell: spell, spellSelected: true });
+      if (spellIndex) {
+        fetch("http://www.dnd5eapi.co/api/spells/" + spellIndex)
+          .then((res) => res.json())
+          .then((spell) => {
+            this.setState({
+              currentSpell: spell,
+              spellSelected: true,
+              errorMsg: "",
+              query: "",
+            });
+          });
+      } else {
+        this.setState({
+          spellSelected: true,
+          currentSpell: null,
+          errorMsg: "Spell not found",
         });
+      }
     });
   };
 
   displayResults = () => {
     if (!this.state.spellSelected) {
       return null;
+    } else if (this.state.errorMsg) {
+      return <div>Spell not found</div>;
     } else {
       return (
         <Spell options={this.state.options} spell={this.state.currentSpell} />
@@ -77,19 +98,24 @@ class App extends Component {
   toggleOptionVisibility = () => {
     this.setState({ showOptions: !this.state.showOptions });
   };
+  handleSearchChange = (e) => {
+    this.setState({ query: e.target.value });
+  };
   render() {
     return (
       <div className="">
         <nav className="navbar navbar-light bg-light border-bottom">
           <ul className="nav">
-            <li className="navbar-brand">5E SpellRef</li>
+            <li className="navbar-brand">
+              <FontAwesomeIcon icon={faHatWizard} /> 5E SpellRef
+            </li>
             <li>
-              <a className="nav-link" href="#">
+              <a className="nav-link" href="/">
                 About
               </a>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <a href="/" className="nav-link">
                 Github
               </a>
             </li>
@@ -100,14 +126,16 @@ class App extends Component {
             <form onSubmit={this.submitSpell}>
               {" "}
               <input
-                className="form-control"
+                className="form-control searchBarLarge"
                 type="text"
                 name="query"
                 id="query"
+                value={this.state.query}
                 list="spells"
+                onChange={this.handleSearchChange}
               />
               {this.createSpellOptions()}
-              <button className="form-control">Search</button>
+              <button className="form-control btn btn-success">Search</button>
             </form>
           </div>
           <div id="searchBottom">
@@ -115,7 +143,7 @@ class App extends Component {
               className="form-control btn btn-primary"
               onClick={this.toggleOptionVisibility}
             >
-              Options
+              Options <FontAwesomeIcon icon={faChevronDown} />
             </button>
           </div>
         </div>

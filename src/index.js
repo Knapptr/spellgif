@@ -4,7 +4,7 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import App from "./App.jsx";
+import App from "./app.jsx";
 ReactDOM.render(
   <React.StrictMode>
     <App />

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faHatWizard } from "@fortawesome/free-solid-svg-icons";
+import { NotFound } from "./NotFound.jsx";
+import { About } from "./About.jsx";
 import "./styles/app.css";
 import Spell from "./Spell.jsx";
 import Options from "./Options";
@@ -16,6 +18,7 @@ class App extends Component {
     },
     showOptions: false,
     spellsList: [],
+    showAbout: false,
     query: "",
     currentSpell: {},
     spellSelected: false,
@@ -74,11 +77,24 @@ class App extends Component {
     });
   };
 
+  handleAbout = () => {
+    this.setState({
+      showAbout: !this.state.showAbout,
+      spellSelected: false,
+    });
+  };
+  renderChoice = () => {
+    if (this.state.showAbout && !this.state.spellSelected) {
+      return <About toggle={this.handleAbout} />;
+    } else {
+      return this.displayResults();
+    }
+  };
   displayResults = () => {
     if (!this.state.spellSelected) {
       return null;
     } else if (this.state.errorMsg) {
-      return <div>Spell not found</div>;
+      return <NotFound />;
     } else {
       return (
         <Spell options={this.state.options} spell={this.state.currentSpell} />
@@ -103,19 +119,23 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="">
+      <div className="app">
         <nav className="navbar navbar-light bg-light border-bottom">
           <ul className="nav">
             <li className="navbar-brand">
               <FontAwesomeIcon icon={faHatWizard} /> 5E SpellRef
             </li>
             <li>
-              <a className="nav-link" href="/">
+              <button
+                className="btn btn-link nav-link"
+                href="/"
+                onClick={this.handleAbout}
+              >
                 About
-              </a>
+              </button>
             </li>
             <li>
-              <a href="/" className="nav-link">
+              <a href="http://github.com/knapptr/spellgif" className="nav-link">
                 Github
               </a>
             </li>
@@ -152,7 +172,7 @@ class App extends Component {
           show={this.state.showOptions}
           handleChange={this.handleOptChange}
         />
-        {this.displayResults()}
+        {this.renderChoice()}
       </div>
     );
   }

@@ -43,6 +43,7 @@ class Spell extends Component {
     let optionalInfo = {};
     optionalInfo.classDiv = (
       <div className="class col border-bottom border-dark">
+        <span className="font-weight-bold maroon">Available to: </span>
         {this.props.spell.classes.map((dndClass) => {
           return (
             <span className="maroon font-weight-bold">{dndClass.name} </span>
@@ -71,7 +72,7 @@ class Spell extends Component {
           <div className="row">
             <div className="col">
               <div className="name display-4">{this.props.spell.name}</div>
-              <div className="school lead maroon text-weight bold">
+              <div className="school lead maroon font-italic font-weight bold">
                 {this.props.spell.school.name}
               </div>
             </div>

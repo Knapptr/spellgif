@@ -1,6 +1,6 @@
 # 5eSpellRef
 
-* by Tyler Knapp
+ by *Tyler Knapp*
 
 #### An small, simple project to practice using:
 

@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/spellgif/static/css/main.5f94cbff.chunk.css",
-    "main.js": "/spellgif/static/js/main.fd919f95.chunk.js",
-    "main.js.map": "/spellgif/static/js/main.fd919f95.chunk.js.map",
-    "runtime-main.js": "/spellgif/static/js/runtime-main.3363b76f.js",
-    "runtime-main.js.map": "/spellgif/static/js/runtime-main.3363b76f.js.map",
-    "static/css/2.89f067aa.chunk.css": "/spellgif/static/css/2.89f067aa.chunk.css",
-    "static/js/2.fd5d29e1.chunk.js": "/spellgif/static/js/2.fd5d29e1.chunk.js",
-    "static/js/2.fd5d29e1.chunk.js.map": "/spellgif/static/js/2.fd5d29e1.chunk.js.map",
-    "index.html": "/spellgif/index.html",
-    "precache-manifest.fd4ac5838ecd736af4513805e42e85c5.js": "/spellgif/precache-manifest.fd4ac5838ecd736af4513805e42e85c5.js",
-    "service-worker.js": "/spellgif/service-worker.js",
-    "static/css/2.89f067aa.chunk.css.map": "/spellgif/static/css/2.89f067aa.chunk.css.map",
-    "static/css/main.5f94cbff.chunk.css.map": "/spellgif/static/css/main.5f94cbff.chunk.css.map",
-    "static/js/2.fd5d29e1.chunk.js.LICENSE.txt": "/spellgif/static/js/2.fd5d29e1.chunk.js.LICENSE.txt"
+    "main.css": "/5ESpellref/static/css/main.5f94cbff.chunk.css",
+    "main.js": "/5ESpellref/static/js/main.b7b74b84.chunk.js",
+    "main.js.map": "/5ESpellref/static/js/main.b7b74b84.chunk.js.map",
+    "runtime-main.js": "/5ESpellref/static/js/runtime-main.9e239df0.js",
+    "runtime-main.js.map": "/5ESpellref/static/js/runtime-main.9e239df0.js.map",
+    "static/css/2.89f067aa.chunk.css": "/5ESpellref/static/css/2.89f067aa.chunk.css",
+    "static/js/2.fd5d29e1.chunk.js": "/5ESpellref/static/js/2.fd5d29e1.chunk.js",
+    "static/js/2.fd5d29e1.chunk.js.map": "/5ESpellref/static/js/2.fd5d29e1.chunk.js.map",
+    "index.html": "/5ESpellref/index.html",
+    "precache-manifest.afb8cbe26213c60535a5bd5791574fca.js": "/5ESpellref/precache-manifest.afb8cbe26213c60535a5bd5791574fca.js",
+    "service-worker.js": "/5ESpellref/service-worker.js",
+    "static/css/2.89f067aa.chunk.css.map": "/5ESpellref/static/css/2.89f067aa.chunk.css.map",
+    "static/css/main.5f94cbff.chunk.css.map": "/5ESpellref/static/css/main.5f94cbff.chunk.css.map",
+    "static/js/2.fd5d29e1.chunk.js.LICENSE.txt": "/5ESpellref/static/js/2.fd5d29e1.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.3363b76f.js",
+    "static/js/runtime-main.9e239df0.js",
     "static/css/2.89f067aa.chunk.css",
     "static/js/2.fd5d29e1.chunk.js",
     "static/css/main.5f94cbff.chunk.css",
-    "static/js/main.fd919f95.chunk.js"
+    "static/js/main.b7b74b84.chunk.js"
   ]
 }

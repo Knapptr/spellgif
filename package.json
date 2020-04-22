@@ -2,7 +2,7 @@
   "name": "spellgif",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://Knapptr.github.io/spellgif",
+  "homepage": "http://Knapptr.github.io/5ESpellref",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",

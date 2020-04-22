@@ -152,6 +152,7 @@ class App extends Component {
                 id="query"
                 value={this.state.query}
                 list="spells"
+	    placeholder="Search for a spell..."
                 onChange={this.handleSearchChange}
               />
               {this.createSpellOptions()}

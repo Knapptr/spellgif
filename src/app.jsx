@@ -25,7 +25,7 @@ class App extends Component {
   };
 
   componentWillMount = () => {
-    fetch("http://www.dnd5eapi.co/api/spells")
+    fetch("https://www.dnd5eapi.co/api/spells")
       .then((res) => res.json())
       .then((spells) => {
         this.setState({ spellsList: spells.results, isLoaded: true });
@@ -57,7 +57,7 @@ class App extends Component {
     }
     this.setState({ spellSelected: false }, () => {
       if (spellIndex) {
-        fetch("http://www.dnd5eapi.co/api/spells/" + spellIndex)
+        fetch("https://www.dnd5eapi.co/api/spells/" + spellIndex)
           .then((res) => res.json())
           .then((spell) => {
             this.setState({

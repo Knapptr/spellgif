@@ -9,7 +9,7 @@ class Spell extends Component {
   };
   componentDidMount() {
     fetch(
-      "http://api.giphy.com/v1/gifs/random?api_key=" +
+      "https://api.giphy.com/v1/gifs/random?api_key=" +
         GIPHY_API_KEY +
         "&tag=" +
         encodeURI(this.props.spell.name) +

@@ -7,8 +7,7 @@
 * React
 * The Fetch() API
 * Calls to a RESTFUL api
-* Bootstrap 4
-* Vim(written with)
+* Bootstrap  4
 
 #### How it Works
 
